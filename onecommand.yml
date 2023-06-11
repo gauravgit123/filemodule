@@ -1,0 +1,23 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Create a folder and all permission on each node
+      file:
+        path: /home/ubuntu/Desktop/new
+        owner: 'ubuntu'
+        group: 'ubuntu'
+        mode: '0755'
+        state: directoy
+
+    - name: Create a file and all permission on each node
+      file:
+        path: /home/ubuntu/Desktop/new/"{{item}}"
+        owner: 'ubuntu'
+        group: 'ubuntu'
+        mode: '0755'
+        state: touch
+      loop:
+        - one.txt
+        - two.txt
+...
