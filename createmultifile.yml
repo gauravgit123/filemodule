@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Create a multiple file on each node
+      file:
+        path: /home/ubuntu/Desktop/new/"{{item}}"
+        state: touch
+      loop:
+        - one.txt
+        - two.txt
+...
