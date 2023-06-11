@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Create a file ownership, group and permissin on each node
+      file:
+        path: /home/ubuntu/Desktop/new/one.txt
+        owner: 'ubuntu'
+        group: 'ubuntu'
+        mode: '0755'
+        state: touch
+...
