@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Create a file on permission on each node
+      file:
+        path: /home/ubuntu/Desktop/new/one.txt
+        mode: '0755'
+        state: touch
+...
