@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Create a folder  ownership, group and permission on each node
+      file:
+        path: /home/ubuntu/Desktop/new
+        owner: 'ubuntu'
+        group: 'ubuntu'
+        mode: '0755'
+        state: directory
+...
